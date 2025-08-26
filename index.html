@@ -49,6 +49,18 @@
         </button>
       </div>
 
+      <div class="tooltip" data-tip="Random Video">
+        <button class="btn bg-transparent border-none hover:bg-transparent" onclick="loadRandomVideo()">
+          <i class="ph ph-shuffle text-2xl"></i>
+        </button>
+      </div>
+
+      <div class="tooltip" data-tip="Manage Video List">
+        <button class="btn bg-transparent border-none hover:bg-transparent" onclick="video_list_modal.showModal()">
+          <i class="ph ph-list-bullets text-2xl"></i>
+        </button>
+      </div>
+
       <div class="tooltip" data-tip="Play/Pause">
         <button onclick="playPauseMedia('video')">
           <i class="ph ph-play-pause text-2xl"></i>
@@ -108,6 +120,50 @@
               <i class="ph ph-play"></i>
           </div>
           </button>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+          <button>x</button>
+        </form>
+      </dialog>
+
+      <dialog id="video_list_modal" class="modal">
+        <div class="modal-box max-w-2xl flex flex-col gap-4 shadow-[0px_20px_207px_10px_rgba(218,_215,_215,_0.37)]">
+          <h3 class="font-bold text-lg">Manage Video List</h3>
+          
+          <div class="flex flex-col gap-2">
+            <label for="newVideoURL">Add New Video URL</label>
+            <div class="flex gap-2">
+              <input class="flex-1 rounded-md pl-2" type="text" id="newVideoURL"
+                placeholder="https://www.youtube.com/watch?v=..." />
+              <button class="btn bg-[#3B3B3B] hover:bg-[#4B4B4B] border-none" onclick="addVideoToList()">
+                <i class="ph ph-plus"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <div class="flex justify-between items-center">
+              <label>Current Video List</label>
+              <div class="text-sm text-gray-400">
+                Auto-change: <span id="autoChangeStatus">Enabled</span> | 
+                Next change: <span id="nextChangeTime">--</span>
+              </div>
+            </div>
+            <div id="videoList" class="max-h-60 overflow-y-auto bg-base-200 rounded-md p-2">
+              <!-- Video list will be populated here -->
+            </div>
+          </div>
+
+          <div class="flex gap-2">
+            <button class="btn bg-[#3B3B3B] hover:bg-[#4B4B4B] border-none flex-1" onclick="toggleAutoChange()">
+              <i class="ph ph-clock"></i>
+              Toggle Auto-change
+            </button>
+            <button class="btn bg-[#3B3B3B] hover:bg-[#4B4B4B] border-none flex-1" onclick="forceRandomChange()">
+              <i class="ph ph-shuffle"></i>
+              Change Now
+            </button>
+          </div>
         </div>
         <form method="dialog" class="modal-backdrop">
           <button>x</button>

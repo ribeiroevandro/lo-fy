@@ -264,6 +264,7 @@ const DEFAULT_VIDEOS = [
 	{ id: "jfKfPfyJRdk", title: "Chillhop Music" },
 	{ id: "lTRiuFIWV54", title: "Peaceful Piano" },
 	{ id: "VUQfT3gNT3g", title: "Lofi Room" },
+	{ id: "hzadz2x0SQM", title: "Inspiring Music for Productivity" },
 ];
 
 function initializeVideoList() {
